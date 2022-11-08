@@ -53,8 +53,6 @@ custom:
 
 plugins:
   - serverless-offline # adding the plugin to be able to run the offline emulation
-  - serverless-dotenv-plugin
-  - serverless-plugin-monorepo
 #export AWS_ACCESS_KEY_ID=<your-key-here>
 #export AWS_SECRET_ACCESS_KEY=<your-secret-key-here>
 #serverless deploy --stage production --region eu-central-1

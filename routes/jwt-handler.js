@@ -12,7 +12,7 @@ module.exports.testMerchantAuthenticate = async (event, context) => {
         var jwtToken = jwt.sign(
             { userIdentifier: userIdentifier },
             secretKey,
-            { expiresIn:30 }
+            { expiresIn: 1800 }
         );
 
         return createResponse({
