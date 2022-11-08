@@ -12,6 +12,6 @@
     "serverless-offline": "^8.8.0"
   },
   "devDependencies": {
-    "serverless": "^3.21.0",
+    "serverless": "^3.21.0"
   }
 }
