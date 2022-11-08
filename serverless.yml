@@ -1,0 +1,60 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: wallet-service
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  lambdaHashingVersion: 20201221
+  stage: dev
+  deploymentMethod: direct
+  environment:
+
+functions:
+  #API KEY
+  testMerchantAuthenticate:
+    handler: routes/jwt-handler.testMerchantAuthenticate
+    events:
+      - http:
+          path: testMerchantAuthenticate
+          method: post
+          cors: true
+  testMerchantVerifyJwt:
+    handler: routes/jwt-handler.testMerchantVerifyJwt
+    events:
+      - http:
+          path: testMerchantVerifyJwt
+          method: post
+          cors: true
+
+custom:
+  serverless-offline:
+    host: '0.0.0.0'
+    httpPort: 3006
+    lambdaPort: 3007
+
+plugins:
+  - serverless-offline # adding the plugin to be able to run the offline emulation
+  - serverless-dotenv-plugin
+  - serverless-plugin-monorepo
+#export AWS_ACCESS_KEY_ID=<your-key-here>
+#export AWS_SECRET_ACCESS_KEY=<your-secret-key-here>
+#serverless deploy --stage production --region eu-central-1
